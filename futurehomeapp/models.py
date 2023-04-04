@@ -32,10 +32,11 @@ class Listing(models.Model):
         return self.likes.count()
 
 
-class Features(models.Model):
+class Feature(models.Model):
     listing = models.ForeignKey(
         Listing, on_delete=models.CASCADE, related_name="features")
     bedrooms = models.IntegerField()
     bathrooms = models.IntegerField()
     ber_category = models.TextField()
+    price = models.IntegerField()
     status = models.IntegerField(choices=STATUS, default=0)
