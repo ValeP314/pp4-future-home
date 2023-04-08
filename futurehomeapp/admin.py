@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Listing, Feature
+from .models import Listing, Question
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -13,9 +13,12 @@ class ListingAdmin(SummernoteModelAdmin):
     search_fields = ['address', 'content']
 
 
-@admin.register(Feature)
-class FeatureAdmin(SummernoteModelAdmin):
+@admin.register(Question)
+class QuestionAdmin(SummernoteModelAdmin):
+    list_filter = ('approved', 'created_on')
+    list_display = ('name', 'body', 'listing', 'created_on', 'approved')
+    search_fields = ['name', 'email', 'body']
+    actions = ['approve_questions']
 
-    list_filter = ('price', 'ber_category')
-    list_display = ('listing', 'status')
-    search_fields = ['listing', 'content']
+    def approve_questions(self, request, queryset):
+        queryset.update(approved=True)

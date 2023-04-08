@@ -18,6 +18,10 @@ class Listing(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    bedrooms = models.IntegerField()
+    bathrooms = models.IntegerField()
+    ber_category = models.CharField(max_length=3)
+    price = models.IntegerField()
     updated_on = models.DateTimeField(auto_now=True)
     likes = models.ManyToManyField(
         User, related_name='listing_like', blank=True)
@@ -32,11 +36,17 @@ class Listing(models.Model):
         return self.likes.count()
 
 
-class Feature(models.Model):
+class Question(models.Model):
     listing = models.ForeignKey(
-        Listing, on_delete=models.CASCADE, related_name="features")
-    bedrooms = models.IntegerField()
-    bathrooms = models.IntegerField()
-    ber_category = models.TextField()
-    price = models.IntegerField()
-    status = models.IntegerField(choices=STATUS, default=0)
+        Listing, on_delete=models.CASCADE, related_name="listing_item")
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return f"Question {self.body} by {self.name}"
