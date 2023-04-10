@@ -4,9 +4,10 @@ body {
 
 .brand {
     font-family: Lato, sans-serif;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 900;
     color: #839FC6;
+    letter-spacing: 3px;
 }
 
 .light-bg {
@@ -32,7 +33,7 @@ body {
 /* main image */
 
 #main-outer {
-    height: 2000px;
+    height: auto;
     width: 100%;
 }
 
@@ -85,7 +86,7 @@ body {
     overflow: hidden;
     position: relative;
     display: inline-block;
-    height: 33vh;
+    height: auto;
     width: 100%;
 }
 

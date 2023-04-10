@@ -37,7 +37,7 @@ class Listing(models.Model):
 
 class Question(models.Model):
     listing = models.ForeignKey(
-        Listing, on_delete=models.CASCADE, related_name="listing_item")
+        Listing, on_delete=models.CASCADE, related_name="questions")
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()
