@@ -33,8 +33,9 @@ body {
 /* main image */
 
 #main-outer {
-    height: auto;
+    height: 700px;
     width: 100%;
+    overflow: hidden;
 }
 
 #main-image {
