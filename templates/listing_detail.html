@@ -35,7 +35,21 @@
                 <div class="row">
 
                     <div class="col-1">
-                        <strong class="text-secondary"><i class="far fa-heart"></i> {{ listing.number_of_likes }} </strong>
+                        <strong>
+                            {% if user.is_authenticated %}
+                            <form class="d-inline" action="{% url 'listing_like' listing.slug %}" method="POST">
+                                {% csrf_token %}
+                                {% if liked %}
+                                <button type="submit" name="blogpost_id" value="{{listing.slug}}" class="btn-like"><i class="fas fa-heart"></i></button>
+                                {% else %}
+                                <button type="submit" name="blogpost_id" value="{{listing.slug}}" class="btn-like"><i class="far fa-heart"></i></button>
+                                {% endif %}
+                            </form>
+                            {% else %}
+                            <span class="text-secondary"><i class="far fa-heart"></i></span>
+                            {% endif %}
+                        </strong>
+                        <strong class="text-secondary"> {{ listing.number_of_likes }} </strong>
                     </div>
                     <div class="col-1">
                         {% with questions.count as total_questions %}
@@ -60,10 +74,10 @@
                 {% for question in questions %}
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
-                        {{ question.name }}
+                        {{ question.name }} on
                         <span class=" text-muted font-weight-normal">
                             {{ question.created_on }}
-                        </span> wrote:
+                        </span> asked:
                     </p>
                     {{ question.body | linebreaks }}
                 </div>

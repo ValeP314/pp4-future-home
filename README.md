@@ -1,108 +1,194 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Future Home
 
-Welcome ValeP314,
+Welcome to Future Home, the website that will allow you to browse and find your perfect home!
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Site viewers can view the home page, the list of listings and access the details of each listing, in order to get an idea of the content of the website. They can connect through the social media located in the footer.
+They can also sign up to the site through the registration form.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+Registered Site Users can also like/unlike listing, ask questions related to the individual listing and book viewings. 
 
-## Gitpod Reminders
+Questions and booking need to be approved by the Site Admin. The admin can also create, update and delete listing, and reply to the Site users questions.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+![Future Home](mockup)
 
-`python3 -m http.server`
+View the live project here: [Future Home](https://###.herokuapp.com/)
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+## Index – Table of Contents
+* [User Experience (UX)](#user-experience-ux) 
+* [Features](#features)
+* [Design](#design)
+* [Planning](#planning)
+* [Technologies Used](#technologies-used)
+* [Testing](#testing)
+* [Deployment](#deployment)
+* [Credits](#credits)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A blue button should appear to click: _Make Public_,
+## User Experience (UX)
 
-Another blue button should appear to click: _Open Browser_.
+### User stories :
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+* US01: View site.
+    - As a Site User I can access the Home page so that I can understand the site purpose and decide if relevant to my needs.
+* US02: Pagination.
+    - As a Site User I can view a paginated lists of posts so that I can select a post to view.
+* US03: View a list of posts.
+    - As a Site User I can view a lists of posts so that I can select a post to view.
+* US04: Open a post.
+    - As a Site User I can click on a post so that I can read the details of the post.
+* US05: Account registration.
+    - As a Site User I can register an account so that I can book a viewing.
+* US06: Like/unlike
+    - As a Site User I can like or unlike listings so that I can trace my favourite listings.
+* US07: Manage posts:
+    - As a Site Admin I can create, read, update and delete posts so that I can manage my listings.
+* US08: Confirm bookings.
+    - As a Site Admin I can approve or disapprove bookings so that I can manage time slot efficiently.
+* US09: Approve questions.
+    - As a Site Admin I can approve questions so that I can review its content before it is posted.
+* US10: Ask questions.
+    - As a Site User I can submit a question to the estate agent so that receive the information I need.
+* US11: View questions.
+    - As a Site Admin I can view questions from Site Users so that I can approve them and publish them.
+* US12: Reply to questions.
+    - As a Site Admin I can reply to questions so that I can build trust with the Site User and answer their queries.
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Features
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Existing Features
 
-------
+- __Navigation Bar__
 
-## Release History
+  - Featured on all three pages, the fully responsive navigation bar includes links to Il Torrione Logo, Home page, "Things to do" and Contact Us page,  and it is identical in each page to allow for easy navigation.
+  - This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button. 
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+    ![Navigation Bar](./assets/images/READMEimg/navigation_bar.png)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+- __The landing page image__
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+  - The landing page includes a photograph of the tower from the outside, to allow the user to see exactly what kind of accommodation they can expect. 
+  - This section introduces the user to Il Torrione with an eye catching animation to grab their attention.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+    ![Landing Page](./assets/images/READMEimg/landing_page.png)
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+- __Description Section__
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+  - The Description section will allow the user to see the inside of Il Torrione, with a quick view of the different rooms.
+  - This user will see the value of renting the premises, having the opportunity to see he main features that the accommodation will offer. 
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+    ![Description](./assets/images/READMEimg/description.png)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+- __Map section__
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+  - This section will allow the user to see exactly where Il Torrione is situated. 
+  - The map is interactive and allow the user to place the accommodation in its town Carassai, as well as in Le Marche Region. 
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
 
-------
+    ![Map](./assets/images/READMEimg/map.png)
 
-## FAQ about the uptime script
 
-**Why have you added this script?**
+- __The Footer__ 
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+  - The footer section includes links to the relevant social media sites for Il Torrione. The links will open to a new tab to allow easy navigation for the user. 
+  - The footer is valuable to the user as it encourages them to keep connected via social media.
+  - The last link redirects to the Booking.com page.
 
-**How will this affect me?**
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+    ![Footer](./assets/images/READMEimg/footer.png)
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+- __Thing to do__
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+  - The "Things to do" will provide the user with a list of possible tours that the host is able to arrange for the guests upon request. 
+  - This section is valuable to the user as they will be able to easily identify the types of events the organisation puts together. 
 
-**So….?**
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+    ![Activities](./assets/images/READMEimg/activities.png)
 
-**Can I opt out?**
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+- __The Contact Us Page__
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+  - This page will allow the user to get contact Il Torrione with any questions they might have. 
+  - The user will be able specify if they would like to check availabilities, enquire about possible tours, or ask any other question. 
+  - The form collects the user first and last name, an email address, the type of query and a free-text message. 
 
-**Anything more?**
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+    ![Contact Us](./assets/images/READMEimg/contact_us.png)
 
----
 
-Happy coding!
+### Features Left to Implement
+
+- New page with photo gallery and guests review, when there will be enough content for it to be implemented.
+
+- Add Favicon once the logo will be finalised by the customer.
+
+
+## Testing 
+
+- I tested this page in different browsers: Chrome, Edge, Safari.
+- The project is responsive, and it looks and works well on different browsers and screen sizes.
+
+
+### Validator Testing 
+
+- HTML
+  - No errors were returned when passing through the official W3C validator:
+    - [Home Page]()
+    - [Activities Page]()
+    - [Contact Us Page]()
+
+
+- CSS
+  - No errors were found when passing through the official [(Jigsaw) validator]()
+
+
+- Accessibility
+  - Performance, accessibility and best practices were assessed through Lighthouse in devtools and passed the testing with good scores.
+    ![Lighthouse](./assets/images/.png)
+
+
+### Fixed Bugs
+
+- Removed duplicate section tag in activities page.
+- Removed duplicate closing tag on Instagram icon on the 3 pages.
+- Formatted images name, removing space from the names and changing the path on individual pages.
+
+
+### Unfixed Bugs
+None
+
+## Deployment
+
+
+  The live link can be found here - [Future Home]()
+
+
+## Credits  
+
+### Content 
+
+- The main structure and the README file are inspired to the I Think Therefore I Blog project.
+- The icons were taken from [Font Awesome](https://fontawesome.com/)
+- The map is taken from GoogleMaps.
+- The colours for the form were selected through [Coolors](https://coolors.co/) 
+- [W3 School](https://www.w3schools.com/) e [StackOverflow.com] were consulted regularly for tips on general coding.
+
+
+### Media
+
+- The [ photo](./assets/.jpg) on the Activities section is from Pexels by Pixabay: 
+
+
+
+### Disclaimer
+
+The information provided on this site is intended for educational purposes only.
+
+
+

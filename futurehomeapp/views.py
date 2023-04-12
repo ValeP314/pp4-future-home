@@ -1,37 +1,16 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.http import HttpResponseRedirect
 from .models import Listing
 from .forms import QuestionForm
 
 
 class ListingList(generic.ListView):
+
     model = Listing
     queryset = Listing.objects.filter(status=0).order_by("-created_on")
     template_name = "index.html"
     paginate_by = 6
-
-
-class ListingDetail(View):
-
-    def get(self, request, slug, *args, **kwargs):
-        queryset = Listing.objects.filter(status=0)
-        listing = get_object_or_404(queryset, slug=slug)
-        questions = listing.questions.filter(
-            approved=True).order_by("-created_on")
-        liked = False
-        if listing.likes.filter(id=self.request.user.id).exists():
-            liked = True
-
-        return render(
-            request,
-            "listing_detail.html",
-            {
-                "listing": listing,
-                "questions": questions,
-                "liked": liked,
-                "question_form": QuestionForm()
-            },
-        )
 
 
 class ListingDetail(View):
@@ -88,3 +67,16 @@ class ListingDetail(View):
                 "question_form": QuestionForm()
             },
         )
+
+
+class ListingLike(View):
+
+    def post(self, request, slug):
+        listing = get_object_or_404(Listing, slug=slug)
+
+        if listing.likes.filter(id=self.request.user.id).exists():
+            listing.likes.remove(request.user)
+        else:
+            listing.likes.add(request.user)
+
+        return HttpResponseRedirect(reverse('listing_detail', args=[slug]))
