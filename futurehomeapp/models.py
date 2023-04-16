@@ -49,3 +49,6 @@ class Question(models.Model):
 
     def __str__(self):
         return f"Question {self.body} by {self.name}"
+
+    def total_questions(self):
+        return question.count

@@ -1,13 +1,14 @@
 # Future Home
 
-Welcome to Future Home, the website that will allow you to browse and find your perfect home!
+Welcome to Future Home, the website that will allow you to browse and find your dream house!
 
-Site viewers can view the home page, the list of listings and access the details of each listing, in order to get an idea of the content of the website. They can connect through the social media located in the footer.
-They can also sign up to the site through the registration form.
+Site viewers can access the home page, in order to get an idea of the content of the website. They are able to easily gaze at the list of listings and view the details of each listing. if they wish to like listings, ask questions or book viewings, they can also sign up to the site through the registration form. 
+Lastly, they can connect through the social media located in the footer.
 
-Registered Site Users can also like/unlike listing, ask questions related to the individual listing and book viewings. 
+Registered Site Users can like/unlike listing, ask questions related to the individual listing and book viewings. 
 
-Questions and booking need to be approved by the Site Admin. The admin can also create, update and delete listing, and reply to the Site users questions.
+Questions and booking need to be approved by the Site Admin. 
+The admin can also create, update and delete listing, and reply to the Site users questions.
 
 ![Future Home](mockup)
 
@@ -15,7 +16,9 @@ View the live project here: [Future Home](https://###.herokuapp.com/)
 
 
 ## Index – Table of Contents
-* [User Experience (UX)](#user-experience-ux) 
+* [User Experience (UX)](#user-experience-ux)
+  * [Wireframes](#wireframes)
+  * [User Stories](#user-stories)
 * [Features](#features)
 * [Design](#design)
 * [Planning](#planning)
@@ -26,6 +29,9 @@ View the live project here: [Future Home](https://###.herokuapp.com/)
 
 
 ## User Experience (UX)
+
+### Wireframes:
+
 
 ### User stories :
 
@@ -59,74 +65,66 @@ View the live project here: [Future Home](https://###.herokuapp.com/)
 
 ### Existing Features
 
+- __Favicon__
+  - A Favicon has been implemented using the image on the logo and main image of the website.
+  - It will be easier for the User to identify the website if they have more than one tab open.
+
 - __Navigation Bar__
 
-  - Featured on all three pages, the fully responsive navigation bar includes links to Il Torrione Logo, Home page, "Things to do" and Contact Us page,  and it is identical in each page to allow for easy navigation.
-  - This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button. 
-
+  - Featured on all pages, the navigation bar is fully responsive.
+  - The Navigation bar will appear slightly different, depending on the status of the User.   
+      - If the User is not Logged in, it includes links to the Home page, the Sign In and Sign Up forms.
+      - If the User is logged in, it includes links to the Home page and the Logout form.
+  - This section will allow the user to easily navigate and sign In/Up to make use of the full website functionality, without having to revert back to the previous page. 
 
     ![Navigation Bar](./assets/images/READMEimg/navigation_bar.png)
 
 - __The landing page image__
 
-  - The landing page includes a photograph of the tower from the outside, to allow the user to see exactly what kind of accommodation they can expect. 
-  - This section introduces the user to Il Torrione with an eye catching animation to grab their attention.
-
+  - The landing page includes a logo and a brand name, to allow the user to understand exactly what kind of contents they can expect. 
+  - This section introduces the user to Future Home with an eye catching animation to grab their attention.
 
     ![Landing Page](./assets/images/READMEimg/landing_page.png)
 
 
-- __Description Section__
-
-  - The Description section will allow the user to see the inside of Il Torrione, with a quick view of the different rooms.
-  - This user will see the value of renting the premises, having the opportunity to see he main features that the accommodation will offer. 
-
-
-    ![Description](./assets/images/READMEimg/description.png)
-
-
-- __Map section__
-
-  - This section will allow the user to see exactly where Il Torrione is situated. 
-  - The map is interactive and allow the user to place the accommodation in its town Carassai, as well as in Le Marche Region. 
-
-
-    ![Map](./assets/images/READMEimg/map.png)
-
-
 - __The Footer__ 
 
-  - The footer section includes links to the relevant social media sites for Il Torrione. The links will open to a new tab to allow easy navigation for the user. 
+  - The footer section includes links to the relevant social media sites for Future Home. The links will open to a new tab to allow easy navigation for the user. 
   - The footer is valuable to the user as it encourages them to keep connected via social media.
-  - The last link redirects to the Booking.com page.
-
 
     ![Footer](./assets/images/READMEimg/footer.png)
 
-- __Thing to do__
+- __Sign In Form__
 
   - The "Things to do" will provide the user with a list of possible tours that the host is able to arrange for the guests upon request. 
   - This section is valuable to the user as they will be able to easily identify the types of events the organisation puts together. 
 
-
     ![Activities](./assets/images/READMEimg/activities.png)
 
 
-- __The Contact Us Page__
+- __Sign Up Form__
 
   - This page will allow the user to get contact Il Torrione with any questions they might have. 
   - The user will be able specify if they would like to check availabilities, enquire about possible tours, or ask any other question. 
   - The form collects the user first and last name, an email address, the type of query and a free-text message. 
 
+    ![Contact Us](./assets/images/READMEimg/contact_us.png)
+
+
+- __Logout Form__
+
+  - This page will allow the user to get contact Il Torrione with any questions they might have. 
+  - The user will be able specify if they would like to check availabilities, enquire about possible tours, or ask any other question. 
+  - The form collects the user first and last name, an email address, the type of query and a free-text message. 
 
     ![Contact Us](./assets/images/READMEimg/contact_us.png)
 
 
 ### Features Left to Implement
 
-- New page with photo gallery and guests review, when there will be enough content for it to be implemented.
+- Add photo gallery, when there will be enough content for it to be implemented.
 
-- Add Favicon once the logo will be finalised by the customer.
+- Add Maps to show the location of the houses advertised.
 
 
 ## Testing 
@@ -174,15 +172,18 @@ None
 ### Content 
 
 - The main structure and the README file are inspired to the I Think Therefore I Blog project.
+- The main image and logo were developed and designed using [Canva](https://www.canva.com/).
 - The icons were taken from [Font Awesome](https://fontawesome.com/)
+- The [favicon](./static/images/favicon.png) was created uploading the main image onto [Favicon.io](https://favicon.io/favicon-generator/).
+- The [mockup] was simulated using [AmIResponsive](https://ui.dev/amiresponsive)
 - The map is taken from GoogleMaps.
 - The colours for the form were selected through [Coolors](https://coolors.co/) 
-- [W3 School](https://www.w3schools.com/) e [StackOverflow.com] were consulted regularly for tips on general coding.
+- [W3 School](https://www.w3schools.com/) e [StackOverflow.com](https://stackoverflow.com/) were consulted regularly for tips on general coding.
 
 
 ### Media
 
-- The [ photo](./assets/.jpg) on the Activities section is from Pexels by Pixabay: 
+
 
 
 

@@ -9,9 +9,13 @@
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
                 <h1 class="post-title">
-                    {{ listing.address}}
+                    {{ listing.address }}
                 </h1>
                 <p class="post-subtitle"> {{ listing.author }} | {{ listing.created_on }}</p>
+                <p class="post-subtitle"><i class="fa-solid fa-money-bill"></i> {{ listing.price }}€</p>
+                <p class="post-subtitle"><i class="fa-solid fa-bed"></i> {{ listing.bedrooms }}</p>
+                <p class="post-subtitle"><i class="fa-solid fa-bath"></i> {{ listing.bathrooms }}</p>
+                <p class="post-subtitle"><i class="fa-solid fa-bolt"></i> {{ listing.ber_category }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
@@ -34,7 +38,7 @@
                 </p>
                 <div class="row">
 
-                    <div class="col-1">
+                    <div class="col-2">
                         <strong>
                             {% if user.is_authenticated %}
                             <form class="d-inline" action="{% url 'listing_like' listing.slug %}" method="POST">
@@ -51,7 +55,7 @@
                         </strong>
                         <strong class="text-secondary"> {{ listing.number_of_likes }} </strong>
                     </div>
-                    <div class="col-1">
+                    <div class="col-2">
                         {% with questions.count as total_questions %}
                         <strong class="text-secondary"><i class="far fa-comments"></i>
                             {{ total_questions }}
@@ -65,8 +69,24 @@
     <div class="row">
         <div class="col">
             <hr>
+            <br>
         </div>
     </div>
+
+    {% if user.is_anonymous %}
+    <div class="row">
+        <div class="col">
+            <p>Please <a class="link" href="{% url 'account_signup' %}">create an account</a> to like the listings, ask questions or book viewings. 
+                Do you already have an account? Then please <a class="link" href="{% url 'account_login' %}">sign in</a> instead.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <hr>
+        </div>
+    </div>
+    {% endif %}
+    
     <div class="row">
         <div class="col-md-8 card mb-4  mt-3 ">
             <h3>Questions:</h3>
@@ -82,6 +102,19 @@
                     {{ question.body | linebreaks }}
                 </div>
                 {% endfor %}
+
+                {% for reply in question.get_replies %}
+                <li class="reply">
+                <div class="reply-body">
+                    <h3>{{ reply.user.username }}</h3>
+                    <div class="meta mb-3">{{ reply.created_on }}</div>
+                    <p>{{ reply.reply }}</p>
+                    #ToDo Create a view to add replies and hook the url to href below
+                    <p><a href="#" class="reply">Reply</a></p>
+                </div>
+                </li>
+            {% endfor %}
+
             </div>
         </div>
         <div class="col-md-4 card mb-4  mt-3 ">

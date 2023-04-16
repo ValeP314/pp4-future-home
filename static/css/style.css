@@ -92,7 +92,7 @@ body {
 }
 
 .masthead-text {
-    background-color: #445261;
+    background-color: #7090BE;
     color: white;
     position: relative;
 }
@@ -104,16 +104,11 @@ body {
 
 .masthead-image:after {
     content: "";
-    position: absolute;
     top: 0;
     right: 90%;
     height: 100%;
     width: 150%;
     background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
 }
 
 .post-link {
@@ -123,32 +118,33 @@ body {
 
 .post-link:hover,
 .page-link {
-    color: #E84610;
+    color: #839FC6;
 }
 
 .post-title {
-    margin-top: 20%;
+    margin-top: 15%;
     margin-left: 5%;
 }
 
 .post-subtitle {
+    margin-top: 8%;
     margin-left: 5%;
-    color: lightgray;
+    color: white;
 }
 
 .btn-signup {
-    background-color: #23BBBB;
+    background-color: #839FC6;
     color: #fff;
 }
 
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
-    color: #23BBBB;
+    color: #839FC6;
 }
 
 .link {
-    color: #23BBBB;
+    color: #839FC6;
     text-decoration: none;
 }
 
