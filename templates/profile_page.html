@@ -1,0 +1,53 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="masthead">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-6">
+                <h1 class="post-title">
+                    My Profile Page
+                </h1>
+                <br>
+                <br>
+                <h2><i class="fa-solid fa-user"></i> Personal details:</h2>
+                <p class="profile-subtitle"> Username: {{ profilepage.name }}</p>
+                <p class="profile-subtitle"> Email address: {{ questions.email }}</p>
+                <hr>
+                <h2><i class="fa-solid fa-heart"></i> Likes:</h2>
+                <p class="profile-subtitle"> {{ listing.number_of_likes }} </p>
+                <hr>
+                <h2><i class="fa-solid fa-question"></i> Questions:</h2>
+                <p class="profile-subtitle"> 
+                    {% for listing in listings %}
+                        {% for question in questions %}
+                        <a href="{% url 'listing_detail' question.listing.slug %}" class="post-link">{{ question.listing }}</a>
+                        {{ question.body }}
+                        {{ question.created_on }}
+                        {% if question.approved %}
+                            Approved
+                        {% else %}
+                            Awaiting approval
+                        {% endif %}
+                            <a class="btn btn-dark btn-profile" href="#">Edit</a>
+                            <a class="btn btn-dark btn-profile" href="#">Delete</a>
+                        {% empty %}
+                            You haven't asked any question.
+                            {% endfor%}
+                    {% endfor%}
+                </p>
+                <hr>
+                <h2><i class="fa-solid fa-calendar"></i> Requests of viewings:</h2>
+                <p class="profile-subtitle"> {{ booking }}</p>
+            </div>
+            <div class="d-none d-md-block col-md-6 masthead-image">
+                <img src="../static/images/icon.png" width="100%">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

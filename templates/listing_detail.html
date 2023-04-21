@@ -124,18 +124,34 @@
                     Your question is awaiting approval
                 </div>
                 {% else %}
+
+                {% if requested %}
+                <div class="alert alert-success" role="alert">
+                    Your request for viewing {{listing.address}} is awaiting approval, and it will be confirmed by email
+                </div>
+                {% else %}
                 
                 {% if user.is_authenticated %}
 
-                <h3>Ask us a question</h3>
+                <h3>Ask us a question:</h3>
                 <p>Posting as: {{ user.username }}</p>
                 <form method="post" style="margin-top: 1.3em;">
                     {{ question_form | crispy }}
                     {% csrf_token %}
                     <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
+                <br>
+                <h3>Request a viewing:</h3>
+                <form method="post" style="margin-top: 1.3em;">
+                    {{ booking_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-signup btn-lg">Request a viewing</button>
+                </form>
+                
                 {% endif %}
                 
+                {% endif %}
+
                 {% endif %}
 
             </div>

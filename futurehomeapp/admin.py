@@ -1,11 +1,10 @@
 from django.contrib import admin
-from .models import Listing, Question
+from .models import Listing, Question, Booking
 from django_summernote.admin import SummernoteModelAdmin
 
 
 @admin.register(Listing)
 class ListingAdmin(SummernoteModelAdmin):
-
     prepopulated_fields = {'slug': ('address',)}
     list_filter = ('status', 'created_on')
     summernote_fields = ('content')
@@ -21,4 +20,15 @@ class QuestionAdmin(SummernoteModelAdmin):
     actions = ['approve_questions']
 
     def approve_questions(self, request, queryset):
+        queryset.update(approved=True)
+
+
+@admin.register(Booking)
+class BookingAdmin(SummernoteModelAdmin):
+    list_filter = ('approved', 'created_on')
+    list_display = ('name', 'body', 'created_on', 'approved')
+    search_fields = ['name', 'email', 'body']
+    actions = ['approve_booking']
+
+    def approve_booking(self, request, queryset):
         queryset.update(approved=True)
