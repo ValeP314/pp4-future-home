@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Delete listing
+{% endblock %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+
+<div class="blue-bg">
+    <div class="main-bg" id="form">
+        <h1>Delete Listing</h1>
+        <br>
+        <h3>Delete {{ listing.address }}</h3>
+            <form method="POST">
+                {% csrf_token %}
+                <button href="{% url 'home' %}" type="input" class="btn btn-signup btn-lg">
+                    Delete
+                </button>
+            </form>
+    </div>
+</div>
+
+<div>
+    <br>
+</div>
+
+{%endblock%}

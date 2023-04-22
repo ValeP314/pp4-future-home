@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Add a new listing
+{% endblock %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+
+<div class="blue-bg">
+    <div class="main-bg" id="form">
+        <h1>Add Listing</h1>
+        <br>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                {{ form | crispy }}
+                </div>
+                <button href="{% url 'home' %}" type="input" class="btn btn-signup btn-lg">
+                    Add
+                </button>
+            </form>
+    </div>
+</div>
+
+<div>
+    <br>
+</div>
+
+{%endblock%}

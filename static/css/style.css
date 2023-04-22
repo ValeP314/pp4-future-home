@@ -74,6 +74,7 @@ body {
     min-width: 30%;
     left: -2px;
     background-color: #7090BE;
+    color: white;
 }
 
 .author {
@@ -143,6 +144,17 @@ body {
     color: #839FC6;
 }
 
+.btn-delete {
+    background-color: red;
+    color: #fff;
+}
+
+.btn-delete:hover,
+.btn-delete:active {
+    background-color: #fff;
+    color: red;
+}
+
 .link {
     color: #839FC6;
     text-decoration: none;
@@ -179,4 +191,14 @@ body {
 .social-icons {
     text-align: center;
     margin: 1%;
+}
+
+.form {
+    margin: 70px 10% 0 0;
+    color: #fff;
+    background-color: rgba(36, 103, 182, 0.5);
+    max-width: 400px;
+    position: absolute;
+    left: 50px;
+    padding: 30px;
 }

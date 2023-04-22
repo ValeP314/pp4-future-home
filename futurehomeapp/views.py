@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import UpdateView, DeleteView
 from django.http import HttpResponseRedirect
-from django.views.generic import ListView
 from .models import Listing, Question
-from .forms import QuestionForm
+from .forms import ListingForm, QuestionForm
+from django.urls import reverse_lazy
 
 
 class ListingList(generic.ListView):
@@ -14,7 +16,7 @@ class ListingList(generic.ListView):
     paginate_by = 6
 
 
-class ListingDetail(View):
+class ListingDetail(DetailView):
 
     def get(self, request, slug, *args, **kwargs):
         queryset = Listing.objects.filter(status=0)
@@ -81,3 +83,21 @@ class ListingLike(View):
             listing.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('listing_detail', args=[slug]))
+
+
+class AddListingView(CreateView):
+    model = Listing
+    form_class = ListingForm
+    template_name = 'add_listing.html'
+
+
+class UpdateListingView(UpdateView):
+    model = Listing
+    template_name = 'update_listing.html'
+    fields = ['content', 'status', 'price']
+
+
+class DeleteListingView(DeleteView):
+    model = Listing
+    template_name = 'delete_listing.html'
+    success_url = reverse_lazy('home')

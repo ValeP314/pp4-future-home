@@ -1,5 +1,9 @@
 {% extends 'base.html' %} 
 
+{% block title %}
+    {{ listing.address }}
+{% endblock %}
+
 {% block content %}
 
 {% load crispy_forms_tags %}
@@ -69,6 +73,12 @@
     </div>
     <div class="row">
         <div class="col">
+            <div>
+                <p class="edit"><a href="{% url 'update_listing' listing.pk %}" class="btn btn-signup btn-lg">Edit Listing</a></p>
+            </div>
+            <div>
+                <p class="delete"><a href="{% url 'delete_listing' listing.pk %}" class="btn btn-delete btn-lg">Delete Listing</a></p>
+            </div>
             <hr>
             <br>
         </div>
@@ -130,6 +140,13 @@
 
             </div>
         </div>
+    </div>
+    <hr>
+    <div>
+        <a href="{% url 'home' %}" class="btn btn-signup btn-lg">Back</a>
+    </div>
+    <div>
+        <br>
     </div>
 </div>
 
