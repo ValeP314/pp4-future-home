@@ -7,6 +7,14 @@
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
+            <div class="d-none d-md-block col-md-6 masthead-image">
+                <!-- The featured image URL goes in the src attribute -->
+                {% if "placeholder" in listing.featured_image.url %}
+                <img src="../static/images/icon.png" width="100%">
+                {% else %}
+                <img src=" {{ listing.featured_image.url }}" width="100%">
+                {% endif %}
+            </div>
             <div class="col-md-6 masthead-text">
                 <h1 class="post-title">
                     {{ listing.address }}
@@ -16,14 +24,6 @@
                 <p class="post-subtitle"><i class="fa-solid fa-bed"></i> {{ listing.bedrooms }}</p>
                 <p class="post-subtitle"><i class="fa-solid fa-bath"></i> {{ listing.bathrooms }}</p>
                 <p class="post-subtitle"><i class="fa-solid fa-bolt"></i> {{ listing.ber_category }}</p>
-            </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                <!-- The featured image URL goes in the src attribute -->
-                {% if "placeholder" in listing.featured_image.url %}
-                <img src="../static/images/icon.png" width="100%">
-                {% else %}
-                <img src=" {{ listing.featured_image.url }}" width="100%">
-                {% endif %}
             </div>
         </div>
     </div>
@@ -62,6 +62,7 @@
                         </strong>
                         {% endwith %}
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -102,55 +103,28 @@
                     {{ question.body | linebreaks }}
                 </div>
                 {% endfor %}
-
-                {% for reply in question.get_replies %}
-                <li class="reply">
-                <div class="reply-body">
-                    <h3>{{ reply.user.username }}</h3>
-                    <div class="meta mb-3">{{ reply.created_on }}</div>
-                    <p>{{ reply.reply }}</p>
-                    #ToDo Create a view to add replies and hook the url to href below
-                    <p><a href="#" class="reply">Reply</a></p>
-                </div>
-                </li>
-            {% endfor %}
-
             </div>
         </div>
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
+
                 {% if asked %}
                 <div class="alert alert-success" role="alert">
                     Your question is awaiting approval
                 </div>
                 {% else %}
+                
+                    {% if user.is_authenticated %}
 
-                {% if requested %}
-                <div class="alert alert-success" role="alert">
-                    Your request for viewing {{listing.address}} is awaiting approval, and it will be confirmed by email
-                </div>
-                {% else %}
-                
-                {% if user.is_authenticated %}
+                    <h3>Ask us a question:</h3>
+                    <p>Posting as: {{ user.username }}</p>
+                    <form method="post" style="margin-top: 1.3em;">
+                        {{ question_form | crispy }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                    </form>
 
-                <h3>Ask us a question:</h3>
-                <p>Posting as: {{ user.username }}</p>
-                <form method="post" style="margin-top: 1.3em;">
-                    {{ question_form | crispy }}
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-                </form>
-                <br>
-                <h3>Request a viewing:</h3>
-                <form method="post" style="margin-top: 1.3em;">
-                    {{ booking_form | crispy }}
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg">Request a viewing</button>
-                </form>
-                
-                {% endif %}
-                
-                {% endif %}
+                    {% endif %}
 
                 {% endif %}
 

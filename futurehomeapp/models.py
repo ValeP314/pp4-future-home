@@ -52,17 +52,3 @@ class Question(models.Model):
 
     def total_questions(self):
         return question.count
-
-
-class Booking(models.Model):
-    name = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="bookings")
-    body = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
-    approved = models.BooleanField(default=False)
-
-    class Meta:
-        ordering = ['created_on']
-
-    def __str__(self):
-        return f"{self.name} is requesting: {self.body}"
