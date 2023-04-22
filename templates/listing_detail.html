@@ -71,6 +71,7 @@
             </div>
         </div>
     </div>
+    {% if user.is_superuser %}
     <div class="row">
         <div class="col">
             <div>
@@ -79,11 +80,13 @@
             <div>
                 <p class="delete"><a href="{% url 'delete_listing' listing.pk %}" class="btn btn-delete btn-lg">Delete Listing</a></p>
             </div>
-            <hr>
-            <br>
         </div>
     </div>
-
+    {% endif %}
+    
+    <hr>
+    <br>
+    
     {% if user.is_anonymous %}
     <div class="row">
         <div class="col">
@@ -102,6 +105,7 @@
         <div class="col-md-8 card mb-4  mt-3 ">
             <h3>Questions:</h3>
             <div class="card-body">
+
                 {% for question in questions %}
                 <div class="comments" style="padding: 10px;">
                     <p class="font-weight-bold">
@@ -112,6 +116,16 @@
                     </p>
                     {{ question.body | linebreaks }}
                 </div>
+                
+                <!--
+                {% if user.is_superuser %}
+                <form method="post" style="margin-top: 1.3em;">
+                    {{ reply_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                </form>
+                {% endif %}-->
+
                 {% endfor %}
             </div>
         </div>

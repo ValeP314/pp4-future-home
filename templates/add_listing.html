@@ -9,6 +9,7 @@
 {% load crispy_forms_tags %}
 
 
+{% if user.is_superuser %}
 <div class="blue-bg">
     <div class="main-bg" id="form">
         <h1>Add Listing</h1>
@@ -16,7 +17,7 @@
             <form method="POST">
                 {% csrf_token %}
                 <div class="form-group">
-                {{ form | crispy }}
+                {{ Listing_form | crispy }}
                 </div>
                 <button href="{% url 'home' %}" type="input" class="btn btn-signup btn-lg">
                     Add
@@ -28,5 +29,7 @@
 <div>
     <br>
 </div>
+
+{% endif %}
 
 {%endblock%}

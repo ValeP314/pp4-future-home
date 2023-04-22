@@ -1,8 +1,8 @@
 from django.urls import path
 from . import views
 from .views import ListingList, ListingDetail, AddListingView
-from .views import DeleteListingView
-from .views import UpdateListingView
+from .views import DeleteListingView, UpdateListingView
+
 
 urlpatterns = [
     path('', ListingList.as_view(), name='home'),
@@ -14,5 +14,4 @@ urlpatterns = [
          DeleteListingView.as_view(), name='delete_listing'),
     path('<slug:slug>/', views.ListingDetail.as_view(), name='listing_detail'),
     path('like/<slug:slug>', views.ListingLike.as_view(), name='listing_like'),
-
 ]

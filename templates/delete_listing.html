@@ -8,6 +8,7 @@
 
 {% load crispy_forms_tags %}
 
+{% if user.is_superuser %}
 
 <div class="blue-bg">
     <div class="main-bg" id="form">
@@ -27,4 +28,6 @@
     <br>
 </div>
 
-{%endblock%}
+{% endif %}
+
+{% endblock %}
