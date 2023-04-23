@@ -1,0 +1,47 @@
+[33mcommit df864fd0762db1e6aa4e31ce3271723f92515d8f[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: ValeP314 <valeriaparisani@hotmail.com>
+Date:   Sun Apr 23 10:04:45 2023 +0000
+
+    Add pictured to media folder
+
+[33mcommit 5f32306e473f6f2d7a6a69c2174764782f2ac04a[m
+Author: ValeP314 <valeriaparisani@hotmail.com>
+Date:   Sun Apr 23 09:39:02 2023 +0000
+
+    deployment commit
+
+[33mcommit 2fda6b94d6112ffc06524e091c12e8e4bfb8ef2f[m
+Author: ValeP314 <valeriaparisani@hotmail.com>
+Date:   Sat Apr 22 22:03:08 2023 +0000
+
+    Commit prior to adding new app
+
+[33mcommit b07fb73883a2d0b20ac4d21e8dfad40781bf534f[m
+Author: ValeP314 <valeriaparisani@hotmail.com>
+Date:   Sat Apr 22 15:56:10 2023 +0000
+
+    Added capability to add, edit and delete listing from the webpage
+
+[33mcommit 70613efe292f57fcb23111d18b97aeda8801d0bf[m
+Author: ValeP314 <valeriaparisani@hotmail.com>
+Date:   Sat Apr 22 10:00:13 2023 +0000
+
+    Reversed to previous stage as bug found
+
+[33mcommit e3ec84e6beb6def05b7d879020d4fbcc153aa1bb[m
+Author: ValeP314 <valeriaparisani@hotmail.com>
+Date:   Fri Apr 21 21:33:18 2023 +0000
+
+    Added booking model and view
+
+[33mcommit cf45662c1b0b080ed874ba09083f3c91443ffcd0[m
+Author: ValeP314 <valeriaparisani@hotmail.com>
+Date:   Sun Apr 16 08:55:41 2023 +0000
+
+    Modified info to be displayed on listing_detail and added README file
+
+[33mcommit 9f772a82fb409111f3f02d5965777850c3905104[m
+Author: ValeP314 <valeriaparisani@hotmail.com>
+Date:   Wed Apr 12 22:07:51 2023 +0000
+
+    Added likes functionality

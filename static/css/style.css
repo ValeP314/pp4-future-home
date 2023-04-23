@@ -41,7 +41,7 @@ body {
 #main-image {
     height: 700px;
     width: 100%;
-    background: url('./media/logo.png') no-repeat center center;
+    background: url('../images/logo.png') no-repeat center center;
     
     /* animates zoom effect on loading page */
     animation-name: main-zoom;
