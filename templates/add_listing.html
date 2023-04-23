@@ -10,20 +10,28 @@
 
 
 {% if user.is_superuser %}
-<div class="blue-bg">
-    <div class="main-bg" id="form">
-        <h1>Add Listing</h1>
-        <br>
-            <form method="POST">
-                {% csrf_token %}
-                <div class="form-group">
-                {{ Listing_form | crispy }}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="blue-bg">
+                <div class="main-bg" id="form">
+                    <br>
+                    <h1>Add Listing</h1>
+                    <br>
+                    <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                    {{ form | crispy }}
+                    </div>
+                    <br>
+                    <button href="{% url 'home' %}" type="input" class="btn btn-signup btn-lg">
+                        Add
+                    </button>
+                    </form>
                 </div>
-                <button href="{% url 'home' %}" type="input" class="btn btn-signup btn-lg">
-                    Add
-                </button>
-            </form>
-    </div>
+            </div>
+        </div>
+    </div>                
 </div>
 
 <div>

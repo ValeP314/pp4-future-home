@@ -9,19 +9,25 @@
 {% load crispy_forms_tags %}
 
 {% if user.is_superuser %}
-
-<div class="blue-bg">
-    <div class="main-bg" id="form">
-        <h1>Delete Listing</h1>
-        <br>
-        <h3>Delete {{ listing.address }}</h3>
-            <form method="POST">
-                {% csrf_token %}
-                <button href="{% url 'home' %}" type="input" class="btn btn-signup btn-lg">
-                    Delete
-                </button>
-            </form>
-    </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="blue-bg">
+                <div class="main-bg" id="form">
+                    <br>
+                    <h1>Delete Listing</h1>
+                    <br>
+                    <h3>Delete {{ listing.address }}</h3>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <button href="{% url 'home' %}" type="input" class="btn btn-delete btn-lg">
+                            Delete
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>                
 </div>
 
 <div>
