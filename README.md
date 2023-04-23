@@ -73,13 +73,13 @@ View the live project here: [Future Home](https://###.herokuapp.com/)
 
   - The Navigation bar will appear slightly different, depending on the status of the User.   
       - If the Site User is not Logged in, it includes links to the Home page, the Sign In and Sign Up forms.
-      ![Navigation Bar User](./static/images/Navigation-bar.png)
+      ![Navigation Bar User](./static/images/navigation-bar.png)
       - If the Site User is logged in, it includes links to the Home page and the Logout form.
       ![Navigation Bar User](./static/images/navbar-user.png)
       - If the Site User is a Superuser, there is also a link to add listings.
       ![Navigation Bar Admin](./static/images/admin-navbar.png)
    - Featured on all pages, the navigation bar is fully responsive.
-   ![Navigation Bar User](./static/images/Responsive-navbar.png)
+   ![Navigation Bar User](./static/images/responsive-navbar.png)
    - This section will allow the user to easily navigate and sign In/Up to make use of the full website functionality, without having to revert back to the previous page. 
 
 
@@ -143,7 +143,7 @@ View the live project here: [Future Home](https://###.herokuapp.com/)
   - This section is valuable to the user as they will be able to access the full website functionality.
   - The form collects the User username, an email address, and a password, that needs to be confirmed for registration purpouse. 
 
-    ![Sign In Form](./static/images/Sign-in.png)
+    ![Sign In Form](./static/images/sign-in.png)
 
 
 - __Sign Up Form__
@@ -153,7 +153,7 @@ View the live project here: [Future Home](https://###.herokuapp.com/)
   - This section is valuable to the user as they will be able to access the full website functionality.
   - The form collects the username and password only. 
 
-    ![Sign Up Form](./static/images/Sign-up.png)
+    ![Sign Up Form](./static/images/sign-up.png)
 
 
 - __Logout Form__
@@ -161,7 +161,7 @@ View the live project here: [Future Home](https://###.herokuapp.com/)
   - This page will allow the Site User to log out.
   - After clicking the button, a second page will ask to confirm the intention to log out. 
 
-    ![Logout Form](./static/images/Sign-out.png)
+    ![Logout Form](./static/images/sign-out.png)
 
 
 ### Features Left to Implement
