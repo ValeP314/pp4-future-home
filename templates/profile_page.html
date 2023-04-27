@@ -1,6 +1,139 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% load crispy_forms_tags %}
+
+
+<!-- Account Details Container -->
+<div class="container">
+    <div class="row text-center my-3">
+        <div class="col-12">
+            <h1>My Profile Page</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 my-3">
+            <h2><i class="far fa-user"></i>Personal Details</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table profile-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email Address</th>
+                  </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                  <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td><a class="btn btn-dark btn-profile" href="{% url 'delete-account' user.id %}">Delete Account</a></td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<hr class="rounded">
+
+<!-- Bookings Made Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-12 my-3">
+            <h2><i class="fas fa-table"></i> Bookings</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table profile-table">
+                
+                <thead>
+                    <tr>
+                      <th scope="col">Viewing</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Time</th>
+                      <th scope="col">Approval Status</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                  <tr>
+                    {% for booking in bookings %}
+                      <td><strong>{{ booking.address }}</strong></td>
+                      <td>{{ booking.day }}</td>
+                      <td>{{ booking.time }}</td>
+                      {% if booking.approved %}
+                          <td>Confirmed</td>
+                      {% else %}
+                          <td>Awaiting approval</td>
+                      {% endif %}
+                      <td>
+                        <a class="btn btn-dark btn-profile" href="{% url 'edit-booking' booking.id %}">Edit</a>
+                        <a class="btn btn-dark btn-profile" href="{% url 'delete-booking' booking.id %}">Delete</a>
+                      </td>
+                  </tr>
+                  {% empty %}
+                  <tr>
+                      <td>You haven't made any bookings.
+                  </tr>
+
+                  {% endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<hr class="rounded">
+
+<!-- Questions Container -->
+<div class="container">
+  <div class="row">
+      <div class="col-12 my-3">
+          <h2><i class="far fa-comment"></i> Questions </h2>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-12">
+          <table class="table profile-table">
+              
+              <thead>
+                  <tr>
+                    <th scope="col">Address</th>
+                    <th scope="col">Question</th>
+                    <th scope="col">Date Posted</th>
+                    <th scope="col">Approval Status</th>
+                  </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                  
+                  <tr>
+                    {% for question in questions %}
+                    <td><strong><a href="{% url 'post-detail' comment.post.slug %}" class="post-link">{{ comment.post }}</a></strong></td>
+                    <td>{{ question.content }}</td>
+                    <td>{{ question.created_on }}</td>
+                    {% if question.approved %}
+                          <td>Approved</td>
+                      {% else %}
+                          <td>Awaiting approval</td>
+                      {% endif %}
+                      <td>
+                        <a class="btn btn-dark btn-profile" href="{% url 'edit-comment' comment.id %}">Edit</a>
+                        <a class="btn btn-dark btn-profile" href="{% url 'delete-comment' comment.id %}">Delete</a>
+                    </td>
+                  </tr>
+                  {% empty %}
+                  <tr>
+                      <td>You haven't commented on any posts.
+                  </tr>
+                  {% endfor%}
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
 
 
 {%endblock%}

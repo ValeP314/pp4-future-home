@@ -3,8 +3,8 @@ from django.views import generic, View
 from django.views.generic import ListView, DetailView, CreateView
 from django.views.generic import UpdateView, DeleteView
 from django.http import HttpResponseRedirect
-from .models import Listing, Question
-from .forms import ListingForm, QuestionForm
+from .models import Listing, Question, Appointment
+from .forms import ListingForm, QuestionForm  #, AppointmentForm
 from django.urls import reverse_lazy
 
 
@@ -24,6 +24,7 @@ class ListingDetail(DetailView):
         questions = listing.questions.filter(
             approved=True).order_by("-created_on")
         liked = False
+        asked = False
         if listing.likes.filter(id=self.request.user.id).exists():
             liked = True
 
@@ -33,7 +34,7 @@ class ListingDetail(DetailView):
             {
                 "listing": listing,
                 "questions": questions,
-                "asked": False,
+                "asked": asked,
                 "liked": liked,
                 "question_form": QuestionForm(),
             },
@@ -45,8 +46,11 @@ class ListingDetail(DetailView):
         questions = listing.questions.filter(
             approved=True).order_by("-created_on")
         liked = False
+        asked = False
         if listing.likes.filter(id=self.request.user.id).exists():
             liked = True
+        if listing.questions.filter(id=self.request.user.id).exists():
+            asked = True
 
         question_form = QuestionForm(data=request.POST)
 
@@ -65,7 +69,7 @@ class ListingDetail(DetailView):
             {
                 "listing": listing,
                 "questions": questions,
-                "asked": True,
+                "asked": asked,
                 "liked": liked,
                 "question_form": QuestionForm(),
             },
@@ -101,3 +105,44 @@ class DeleteListingView(DeleteView):
     model = Listing
     template_name = 'delete_listing.html'
     success_url = reverse_lazy('home')
+
+
+class ProfilePageView(View):
+    model = Question
+    template_name = 'profile-page.html'
+    fields = ['name', 'email']
+
+
+class AppointmentView(View):
+    def get(self, request):
+        if request.method == 'POST':
+            day = request.POST.get('day')
+            request.session['day'] = day
+        return render(
+            request,
+            'contact.html',
+            {
+                "appointment_form": AppointmentForm(),
+                "booked": False
+            },
+        )
+
+    def post(self, request):
+        appointment = None
+        time = request.POST.get("time")
+        day = request.POST.get('day')
+        appointment_form = AppointmentForm(data=request.POST)
+
+        if appointment_form.is_valid():
+            appointment = appointment_form.save(commit=False)
+            appointment.user = User.objects.get(id=request.user.id)
+            appointment.email = request.user.email
+            appointment.name = request.user.username
+            appointment.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Booking request successful, awaiting approval.')
+
+            return redirect('profile-page')
+        else:
+            appointment_form = AppointmentForm()

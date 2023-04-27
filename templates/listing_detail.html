@@ -67,6 +67,23 @@
                         {% endwith %}
                     </div>
                     
+                    <div class="col-2">
+                        <strong>
+                            {% if user.is_authenticated %}
+                            <form class="d-inline" method="POST">
+                                {% csrf_token %}
+                                {% if booked %}
+                                <button type="submit" name="booked_id" value="{{listing.booked}}" class="btn-booked"><i class="far fa-calendar-check"></i></button>
+                                {% else %}
+                                <button type="submit" name="booked_id" value="{{listing.booked}}" class="btn-booked"><i class="far fa-calendar-plus"></i></button>
+                                {% endif %}
+                            </form>
+                            {% else %}
+                            <span class="text-secondary"><i class="far fa-calendar"></i></span>
+                            {% endif %}
+                        </strong>
+                    </div>
+                    
                 </div>
             </div>
         </div>

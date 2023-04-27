@@ -19,9 +19,6 @@ View the live project here: [Future Home](https://###.herokuapp.com/)
 * [User Experience (UX)](#user-experience-ux)
   * [User Stories](#user-stories)
 * [Features](#features)
-* [Design](#design)
-  * [Wireframes](#wireframes)
-* [Planning](#planning)
 * [Technologies Used](#technologies-used)
 * [Testing](#testing)
 * [Deployment](#deployment)
@@ -171,14 +168,6 @@ View the live project here: [Future Home](https://###.herokuapp.com/)
 - Add proper booking system for house viewings.
 - Add reply sistem for Site User's questions.
 - Add profile page for Site Users, so they can check the upcoming viewings and the replies to theis questions.
-
-
-## Design
-
-### Wireframes:
-
-
-## Planning
 
 
 ## Technologies Used

@@ -41,7 +41,7 @@ body {
 #main-image {
     height: 700px;
     width: 100%;
-    background: url('../images/logo.png') no-repeat center center;
+    background: url('https://res.cloudinary.com/dblljsm5s/image/upload/v1682245897/ywdl0ir0ytgjbl5mbbcb.png') no-repeat center center;
     
     /* animates zoom effect on loading page */
     animation-name: main-zoom;

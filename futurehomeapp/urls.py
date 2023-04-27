@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 from .views import ListingList, ListingDetail, AddListingView
 from .views import DeleteListingView, UpdateListingView
+# from .views import AppointmentView, ProfilePageView
 
 
 urlpatterns = [
@@ -14,4 +15,7 @@ urlpatterns = [
          DeleteListingView.as_view(), name='delete_listing'),
     path('<slug:slug>/', views.ListingDetail.as_view(), name='listing_detail'),
     path('like/<slug:slug>', views.ListingLike.as_view(), name='listing_like'),
+    # path('appointment/', views.AppointmentView.as_view(), name='appointment'),
+    # path('booking-submit', views.bookingSubmit, name='bookingSubmit'),
+    # path('profile-page/name/', views.ProfilePageView.as_view(), name='profile-page'),
 ]
