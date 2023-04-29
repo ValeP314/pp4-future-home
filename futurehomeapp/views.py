@@ -3,9 +3,10 @@ from django.views import generic, View
 from django.views.generic import ListView, DetailView, CreateView
 from django.views.generic import UpdateView, DeleteView
 from django.http import HttpResponseRedirect
-from .models import Listing, Question, Appointment
-from .forms import ListingForm, QuestionForm  #, AppointmentForm
+from .models import Listing, Question, Answer
+from .forms import ListingForm, QuestionForm
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 class ListingList(generic.ListView):
@@ -41,6 +42,12 @@ class ListingDetail(DetailView):
         )
 
     def post(self, request, slug, *args, **kwargs):
+
+        if not request.user.is_authenticated:
+            return redirect(
+                reverse('/listing-detail')
+            )
+
         queryset = Listing.objects.filter(status=0)
         listing = get_object_or_404(queryset, slug=slug)
         questions = listing.questions.filter(
@@ -89,60 +96,28 @@ class ListingLike(View):
         return HttpResponseRedirect(reverse('listing_detail', args=[slug]))
 
 
-class AddListingView(CreateView):
+class AddListingView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Listing
     form_class = ListingForm
     template_name = 'add_listing.html'
 
+    def test_func(self):
+        return self.request.user.is_staff
 
-class UpdateListingView(UpdateView):
+
+class UpdateListingView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Listing
     template_name = 'update_listing.html'
     fields = ['content', 'status', 'price']
 
+    def test_func(self):
+        return self.request.user.is_staff
 
-class DeleteListingView(DeleteView):
+
+class DeleteListingView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Listing
     template_name = 'delete_listing.html'
     success_url = reverse_lazy('home')
 
-
-class ProfilePageView(View):
-    model = Question
-    template_name = 'profile-page.html'
-    fields = ['name', 'email']
-
-
-class AppointmentView(View):
-    def get(self, request):
-        if request.method == 'POST':
-            day = request.POST.get('day')
-            request.session['day'] = day
-        return render(
-            request,
-            'contact.html',
-            {
-                "appointment_form": AppointmentForm(),
-                "booked": False
-            },
-        )
-
-    def post(self, request):
-        appointment = None
-        time = request.POST.get("time")
-        day = request.POST.get('day')
-        appointment_form = AppointmentForm(data=request.POST)
-
-        if appointment_form.is_valid():
-            appointment = appointment_form.save(commit=False)
-            appointment.user = User.objects.get(id=request.user.id)
-            appointment.email = request.user.email
-            appointment.name = request.user.username
-            appointment.save()
-            messages.add_message(
-                request, messages.SUCCESS,
-                'Booking request successful, awaiting approval.')
-
-            return redirect('profile-page')
-        else:
-            appointment_form = AppointmentForm()
+    def test_func(self):
+        return self.request.user.is_staff

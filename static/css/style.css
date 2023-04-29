@@ -130,6 +130,7 @@ body {
 .post-subtitle {
     margin-top: 8%;
     margin-left: 5%;
+    font-weight: 700;
     color: white;
 }
 
@@ -201,4 +202,16 @@ body {
     position: absolute;
     left: 50px;
     padding: 30px;
+}
+
+/* Media queries*/
+
+/* Larger to medium screen size from 1000px and below */
+
+@media screen and (max-width: 1000px) {
+    
+    .post-subtitle {
+        margin-top: 6%;
+        font-weight: 500;
+    }
 }

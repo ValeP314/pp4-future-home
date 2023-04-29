@@ -1,6 +1,5 @@
 from django import forms
-from .models import Listing, Question, Appointment
-# from bootstrap_datepicker_plus.widgets import DatePickerInput
+from .models import Listing, Question, Answer
 
 
 class ListingForm (forms.ModelForm):
@@ -30,13 +29,7 @@ class QuestionForm (forms.ModelForm):
         fields = ('body',)
 
 
-# class AppointmentForm (forms.ModelForm):
-#    class Meta:
-#        model = Appointment
-#        fields = ('user', 'day', 'time')
-#
-#        widgets = {
-#            'user': forms.TextInput(attrs={'class': 'form-control'}),
-#           'day': forms.TextInput(attrs={'class': 'form-control'}),
-#            'time': forms.Select(attrs={'class': 'form-control'}),
-#            }
+class ReplyForm (forms.ModelForm):
+    class Meta:
+        model = Answer
+        fields = ('body',)

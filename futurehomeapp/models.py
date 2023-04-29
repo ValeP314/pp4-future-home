@@ -59,30 +59,16 @@ class Question(models.Model):
         return question.count
 
 
-TIME_CHOICES = (
-    ("3 PM", "3 PM"),
-    ("4 PM", "4 PM"),
-    ("5 PM", "5 PM"),
-    ("6 PM", "6 PM"),
-    ("7 PM", "7 PM"),
-)
+class Answer(models.Model):
+    question = models.OneToOneField(
+        Question, on_delete=models.CASCADE, related_name="answer")
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="answers")
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
 
-
-class Appointment(models.Model):
-    user = models.ForeignKey(
-        User, on_delete=models.CASCADE, null=True, blank=True)
-    day = models.DateField(default=datetime.now)
-    time = models.CharField(
-        max_length=10, choices=TIME_CHOICES, default="3 PM")
-    created_on = models.DateTimeField(
-        default=datetime.now, blank=True)
-    approved = models.BooleanField(default=False)
+    class Meta:
+        ordering = ['created_on']
 
     def __str__(self):
-        return f"{self.user.username} | day: {self.day} | time: {self.time}"
-
-    def get_absolute_url(self):
-        return reverse("profile-page", kwargs={"pk": self.pk})
-
-    def number_of_viewings(self):
-        return self.appointment.approved.count()
+        return f"Answer to {self.question}: {self.body}"

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Listing, Question, Appointment
+from .models import Listing, Question, Answer
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -23,12 +23,7 @@ class QuestionAdmin(SummernoteModelAdmin):
         queryset.update(approved=True)
 
 
-# @admin.register(Appointment)
-# class AppointmentAdmin(SummernoteModelAdmin):
-#    list_filter = ('approved', 'created_on')
-#    list_display = ('user', 'day', 'time', 'created_on', 'approved')
-#    search_fields = ['user', 'email', 'day']
-#    actions = ['approve_appointment']
-#
-#    def approve_appointment(self, request, queryset):
-#        queryset.update(approved=True)
+@admin.register(Answer)
+class AnswerAdmin(SummernoteModelAdmin):
+    list_filter = ('created_on',)
+    list_display = ('author', 'question', 'created_on')
