@@ -10,9 +10,7 @@ Registered Site Users can like/unlike listing, ask questions related to the indi
 Questions and booking need to be approved by the Site Admin. 
 The admin can also create, update and delete listing, directly from the webpage.
 
-![Future Home](mockup)
-
-View the live project here: [Future Home](https://###.herokuapp.com/)
+View the live project here: [Future Home](https://future-home.herokuapp.com/)
 
 
 ## Index – Table of Contents
@@ -99,15 +97,15 @@ View the live project here: [Future Home](https://###.herokuapp.com/)
 - __The listings details__
 
   - The listings details page includes the picture and the address, ana a series of relevant information, like number of bedrooms/bathrooms, or price.
-  ![Listings details](./static/images/ex-listingpage.png)
+    ![Listings details](./static/images/ex-listingpage.png)
   - Below, there is a list of questions that have been asked by registered Site User.
-  ![Questions](./static/images/questions.png)
+    ![Questions](./static/images/questions.png)
   - If the Site User is not registered, there is a prompt to sign in/up, in order to like/unlike the listing, or ask questions.
-  ![Prompt to sign in/up](./static/images/prompt.png)
+    ![Prompt to sign in/up](./static/images/prompt.png)
   - If the Site User is registered, they will be able to ask questions through a form.
-  ![Question Form](./static/images/question-form.png) 
+    ![Question Form](./static/images/question-form.png) 
   - At the bottom of the page, there is a button that allows to go back to the home page.
-  ![Back button](./static/images/back.png)
+    ![Back button](./static/images/back.png)
     
 
 - __The Admin functionalities__
@@ -167,7 +165,7 @@ View the live project here: [Future Home](https://###.herokuapp.com/)
 - Add Maps to show the location of the houses advertised.
 - Add proper booking system for house viewings.
 - Add reply sistem for Site User's questions.
-- Add profile page for Site Users, so they can check the upcoming viewings and the replies to theis questions.
+- Add profile page for Site Users, so they can check the upcoming viewings and the replies to their questions.
 
 
 ## Technologies Used
@@ -197,6 +195,7 @@ View the live project here: [Future Home](https://###.herokuapp.com/)
 
 - I tested this page in different browsers: Chrome, Edge, Safari.
 - The project is responsive, and it looks and works well on different browsers and screen sizes.
+  ![Future Home](./static/images/mockup.png)
 
 
 ### Validator Testing 
@@ -210,10 +209,31 @@ View the live project here: [Future Home](https://###.herokuapp.com/)
 
 - CSS
   - No errors were found when passing through the official [(Jigsaw) validator]()
+    - [Home Page](http://jigsaw.w3.org/css-validator/validator?lang=it&profile=css3svg&uri=https%3A%2F%2Ffuture-home.herokuapp.com%2F&usermedium=all&vextwarning=&warning=1)
+    - []()
+    - [Contact Us Page]()
 
 
 - Python
-  - I used ![Python linter](https://pep8ci.herokuapp.com/#), and no errors were returned.
+  - I used ![Python linter](https://pep8ci.herokuapp.com/), and one error was returned on the settings.py file:
+    - Line 128 is too long (87 characters over 79 allowed), but unfortunately it is not possible to modify it.
+    [Settings.py](./static/images/Settings.py.png)
+
+  - The remaining Python files did not show any errors:
+    - [Asgi.py](./static/images/asgy_py.png)
+    - [Urls.py](./static/images/urls_py.png)
+    - [Wsgi.py](./static/images/wsgi_py.png)
+    - [Admin.py](./static/images/admin_py.png)
+    - [Apps.py](./static/images/apps_py.png)
+    - [Forms.py](./static/images/forms_py.png)
+    - [Models.py](./static/images/models_py.png)
+    - [Tests.py](./static/images/tests_py.png)
+    - [Urls.py](./static/images/urls_app_py.png)
+    - [Views.py](./static/images/views_py.png)
+
+
+
+
 
 - Accessibility
   - Performance, accessibility and best practices were assessed through Lighthouse in devtools and passed the testing with good scores.
@@ -223,6 +243,7 @@ View the live project here: [Future Home](https://###.herokuapp.com/)
 ### Fixed Bugs
 
 - Removed migrations made during design, using "python3 manage.py migrate futurehomeapp 0017", as 0017 included features that were removed before final deployment.
+- Pictures did not show on the deployed website, so the relevant links were reviewed and Cloudinary was checked to make sure that the static files were copied.
 
 
 ### Unfixed Bugs

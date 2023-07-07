@@ -215,3 +215,13 @@ body {
         font-weight: 500;
     }
 }
+
+/* Small screen size from 330px and below */
+
+@media screen and (max-width: 330px) {
+    
+    .brand {
+        font-family: Lato, sans-serif;
+        font-size: 2rem;
+    }
+}
