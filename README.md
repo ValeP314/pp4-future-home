@@ -42,7 +42,7 @@ View the live project here: [Future Home](https://future-home.herokuapp.com/)
 * US07: Manage posts:
     - As a Site Admin I can create, read, update and delete posts so that I can manage my listings.
 * US08: Confirm bookings.
-    - As a Site Admin I can approve or disapprove bookings so that I can manage time slot efficiently.
+    - As a Site Admin I can approve or disapprove bookings so that I can manage time slot efficiently. - Not implemented
 * US09: Approve questions.
     - As a Site Admin I can approve questions so that I can review its content before it is posted.
 * US10: Ask questions.
@@ -164,7 +164,7 @@ View the live project here: [Future Home](https://future-home.herokuapp.com/)
 - Add photo gallery, perhaps with a carousel, when there will be enough content for it to be implemented.
 - Add Maps to show the location of the houses advertised.
 - Add proper booking system for house viewings.
-- Add reply sistem for Site User's questions.
+- Add reply sistem for Site User's questions, directly through the main page, without having to access the Admin panel.
 - Add profile page for Site Users, so they can check the upcoming viewings and the replies to their questions.
 
 
@@ -202,20 +202,16 @@ View the live project here: [Future Home](https://future-home.herokuapp.com/)
 
 - HTML
   - No errors were returned when passing through the official W3C validator:
-    - [Home Page]()
-    - [Activities Page]()
-    - [Contact Us Page]()
+    - [Home Page](./static/images/html_test.png)
 
 
 - CSS
   - No errors were found when passing through the official [(Jigsaw) validator]()
     - [Home Page](http://jigsaw.w3.org/css-validator/validator?lang=it&profile=css3svg&uri=https%3A%2F%2Ffuture-home.herokuapp.com%2F&usermedium=all&vextwarning=&warning=1)
-    - []()
-    - [Contact Us Page]()
 
 
 - Python
-  - I used ![Python linter](https://pep8ci.herokuapp.com/), and one error was returned on the settings.py file:
+  - I used [Python linter](https://pep8ci.herokuapp.com/), and one error was returned on the settings.py file:
     - Line 128 is too long (87 characters over 79 allowed), but unfortunately it is not possible to modify it.
     [Settings.py](./static/images/Settings.py.png)
 
@@ -232,12 +228,9 @@ View the live project here: [Future Home](https://future-home.herokuapp.com/)
     - [Views.py](./static/images/views_py.png)
 
 
-
-
-
 - Accessibility
   - Performance, accessibility and best practices were assessed through Lighthouse in devtools and passed the testing with good scores.
-    ![Lighthouse](./assets/images/.png)
+    ![Lighthouse](./static/images/lighthouse.png)
 
 
 ### Fixed Bugs
@@ -247,12 +240,10 @@ View the live project here: [Future Home](https://future-home.herokuapp.com/)
 
 
 ### Unfixed Bugs
-None
+- Line 128 too long in Settings.py file.
 
 ## Deployment
-
-
-  The live link can be found here - [Future Home]()
+The live link can be found here - [Future Home]()
 
 
 ## Credits  
