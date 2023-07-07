@@ -63,7 +63,7 @@ View the live project here: [Future Home](https://###.herokuapp.com/)
 
   - A Favicon has been implemented using the image on the logo and main image of the website.
   - It will be easier for the User to identify the website if they have more than one tab open.
-![Favicon](./static/images/favicon.png)
+  - ![Favicon](./static/images/favicon.png)
 
 
 - __Navigation Bar__

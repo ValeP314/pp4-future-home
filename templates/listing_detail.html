@@ -115,6 +115,17 @@
                         </span> asked:
                     </p>
                     {{ question.body | linebreaks }}
+                    
+                    <!--
+                    {% if user.is_superuser %}
+                    <form style="margin-top: 1em;">
+                        {{ reply_form | crispy }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-signup btn-lg">Answer</button>
+                    </form>
+                    {% endif %}
+                    -->
+
                 </div>
                 
                 {% if question.answer %}
@@ -131,22 +142,13 @@
                 {% endif %}
 
 
-                <!--
-                {% if user.is_superuser %}
-                <form method="post" style="margin-top: 1.3em;">
-                    {{ reply_form | crispy }}
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-                </form>
-                {% endif %}-->
-
                 {% endfor %}
             </div>
         </div>
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
 
-                {% if asked %}
+                {% if question.asked %}
                 <div class="alert alert-success" role="alert">
                     Your question is awaiting approval
                 </div>
