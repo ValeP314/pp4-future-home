@@ -17,10 +17,22 @@ View the live project here: [Future Home](https://future-home.herokuapp.com/)
 * [User Experience (UX)](#user-experience-ux)
   * [User Stories](#user-stories)
 * [Features](#features)
+  * [Existing Features](#existing-features) 
+  * [Features Left to Implement](#features-left-to-implement)
 * [Technologies Used](#technologies-used)
+  * [Languages](#languages)
+  * [Frameworks & Software](#frameworks-software)
 * [Testing](#testing)
+  * [Validator Testing](#validator-testing)
+  * [Manual Testing](#manual-testing)
+  * [Fixed Bugs](#fixed-bugs)
+  * [Unfixed Bugs](#unfixed-bugs)
 * [Deployment](#deployment)
+  * [Creating the Project](#creating-project)
+  * [Deployment to Heroku](#deployment-heroku)
 * [Credits](#credits)
+  * [Contents](#contents)
+  * [Disclaimer](#disclaimer)
 
 
 ## User Experience (UX)
@@ -199,7 +211,6 @@ View the live project here: [Future Home](https://future-home.herokuapp.com/)
 
 
 ### Validator Testing 
-
 - HTML
   - No errors were returned when passing through the official W3C validator:
     - [Home Page](./static/images/html_test.png)
@@ -263,8 +274,109 @@ View the live project here: [Future Home](https://future-home.herokuapp.com/)
 - Line 128 too long in Settings.py file.
 - Pictures can be compressed in order to get a better performance score on Lighthouse.
 
+
 ## Deployment
-The live link can be found here - [Future Home]()
+
+### Creating the Project
+1. Create a new GitHub repository from the [Code Institute template](https://github.com/Code-Institute-Org/gitpod-full-template), clicking on "Use this template" and then "Create repository from template".
+2. Once the repository has been created, open it in the GitPod workspace by clicking on the GitPod button.
+3. Install Django and the relevant libraries:
+  - `pip3 install 'django<4' gunicorn`
+  - `pip3 install dj_database_url==0.5.0 psycopg2`
+  - `pip3 install 'dj3-cloudinary-storage`
+4. Create a requirements.txt file:
+  - `pip3 freeze --local > requirements.txt`
+5. Create a new project typing: 
+  - `django-admin startproject PROJECT_NAME .`
+  - This command creates a manage.py file and a new directory called PROJECT_NAME.
+6. Create the application typing:
+  - `python3 manage.py startapp APPLICATION_NAME`
+7. Add the application to the list of installed apps in the settings.py file. 
+  - Open the PROJECT_NAME directory, navigate to the settings.py file and add the APPLICATION_NAME to the list of the INSTALLED_APPS.
+8. Migrate the changes to the database:
+  - `python3 manage.py migrate`
+9. Run the server:
+  - `python3 manage.py runserver`
+  - This command will open the project in the browser.
+
+
+### Deployment to Heroku
+1. Create an account or log in to [Heroku](https://www.heroku.com/).
+2. On the dashboard, click on "New" and select "Create new app".
+3. Give the app a unique name and select the region closest to you. Then click "Create app" to confirm.
+4. To create a new database that can be accessed by Heroku, create an account or log in to [ElephantSQL](https://customer.elephantsql.com/login).
+5. Click "Create New Instance".
+6. Set up your plan, giving it a name and choosing the "Tiny Turtle (free)" plan.
+7. Select the Region and data center closer to you, and then click "Review" and confirm clicking on "Create instance".
+8. Return to the ElephantSQL dashboard and click on the database instance name for this project.
+ - In the URL section, click the copy icon to copy the database URL.
+9. In the project workspace, create a file called env.py and include it in the .gitignore file. 
+10. In the env.py file:
+  - `import os`
+  - `os.environ["DATABASE_URL"] = "copiedURL"`
+  - `os.environ["SECRET_KEY"] = "secretKEY"`
+11. Open up your settings.py file and add the following code below your Path import
+ `import os`
+ `import dj_database_url`
+ `if os.path.isfile('env.py'):`
+    `import env`
+12. Remove the insecure secret key provided by Django. Instead, we will reference the variable in the env.py file, so change your SECRET_KEY variable to the following
+  `SECRET_KEY = os.environ.get('SECRET_KEY')`
+13. Comment out the original DATABASES variable and add the code below: 
+  `DATABASES = {`
+     `'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))`
+  `}`
+14. Run the migration command in your terminal to migrate your database structure to the newly-connected ElephantSQL database:
+- `python manage.py migrate`
+15. In the Heroku app settings, click on the 'Reveal Config Vars' button. Create a config variable called DATABASE_URL and paste in the URL you copied from ElephantSQL. This connects the database into the app.
+16. Click Reveal Config Vars and add a new record with SECRET_KEY.
+17. Set up a Cloudinary account on [Cloudinary](https://cloudinary.com/)
+18. Copy to clipboard the API Environment Variable.
+19. Add another line to the env.py file:
+- `os.environ["CLOUDINARY_URL"] = "cloudinary://***"`
+20. Add a new config variable in Heroku called CLOUDINARY_URL and paste the API Environment variable once again.
+21. Add another config variable typing `DISABLE_COLLECTSTATIC = 1`.
+22. Back in the settings.py file, we need to add our Cloudinary libraries to the INSTALLED_APPS list in this order:
+- cloudinary_storage
+- django.contrib.staticfiles
+- cloudinary
+23. To complete the connection with Cloudinary, add the following lines below the STATIC_URL:
+- `STATICFILES_STORAGE = (`
+    `'cloudinary_storage.storage.StaticHashedCloudinaryStorage')`
+- `STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]`
+- `STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')`
+
+- ``MEDIA_URL = '/media/'``
+- ``DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'``
+24. Back to the top of the ile settings.py, add the following line after BASE_DIR:
+- `TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')`
+25. In TEMPLATES, change the DIRS to:
+- `[TEMPLATES_DIR]`
+26. In ALLOWED_HOSTS, add the Heroku app and localhost to the list:
+- `ALLOWED_HOSTS = ['HEROKU_APP_NAME.herokuapp.com', 'localhost']`
+27. In the top level directory, create three folders: **media**, **static** and **templates**.
+28. Create the Procfile and add the following line:
+- `web: gunicorn PROJ_NAME.wsgi`
+29. Save the files and push the changes:
+- `git add .`
+- `git commit -m "Deployment commit`
+- `git push`
+30. Access Heroku and add one last config variable "PORT" (with the value 8000).
+31. Open the "Deploy" tab and connect your GitHub account as a deployment method. Then search for your repository.
+32. Scroll down to the bottom of the page and click on "Deploy branch" on the "Manual deployment section".
+33. The app is successfully deployed.
+
+
+### Final Deployment
+1. Once the project is completed, remember to change the debug setting to: `DEBUG = False` in settings.py.
+2. Add `X_FRAME_OPTIONS = SAMEORIGIN` to settings.py, just below the DEBUG, to allow the summernote editor to work.
+3. Commit and push the changes, and head back to Heroku. 
+4. Delete the `DISABLE_COLLECTSTATIC = 1` among the config variables.
+5. In the Deploy tab, click on "Deploy branch".
+6. Click on "Open App" and the app should show in the same way as in the localhost.
+
+
+The live link can be found here - [Future Home](https://future-home.herokuapp.com/)
 
 
 ## Credits  
