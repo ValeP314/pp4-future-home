@@ -68,7 +68,7 @@ View the live project here: [Future Home](https://future-home.herokuapp.com/)
 
   - The Navigation bar will appear slightly different, depending on the status of the User.   
       - If the Site User is not Logged in, it includes links to the Home page, the Sign In and Sign Up forms.
-      ![Navigation Bar User](./static/images/navigation-bar.png)
+      ![Navigation Bar Unknown User](./static/images/navigation-bar.png)
       - If the Site User is logged in, it includes links to the Home page and the Logout form.
       ![Navigation Bar User](./static/images/navbar-user.png)
       - If the Site User is a Superuser, there is also a link to add listings.
@@ -195,7 +195,7 @@ View the live project here: [Future Home](https://future-home.herokuapp.com/)
 
 - I tested this page in different browsers: Chrome, Edge, Safari.
 - The project is responsive, and it looks and works well on different browsers and screen sizes.
-  ![Future Home](./static/images/mockup.png)
+  ![Future Home](./static/images/mockup.webp)
 
 
 ### Validator Testing 
@@ -231,16 +231,37 @@ View the live project here: [Future Home](https://future-home.herokuapp.com/)
 - Accessibility
   - Performance, accessibility and best practices were assessed through Lighthouse in devtools and passed the testing with good scores.
     ![Lighthouse](./static/images/lighthouse.png)
+  - The Performance score might be improved converting the .png files in .webp files, in order to compress the images and facilitate the upload when the page is loaded. For lack of time, I did not convert them, but it is certainly an improvement that can be made.
+
+
+### Manual Testing
+
+- Navigation Bar:
+  - The "Future Home" logo redirects to the home page when clicked.
+  - The  "Home" button on the navigation bar redirects to the Home page when clicked.
+  - The "Register" button on the navigation bar changes colour when hoovered on and loads the "Sign Up" page when clicked.
+  - The "Login" button on the navigation bar changes colour when hoovered on and loads the "Sign In" page when clicked.
+- Home Page:
+  - Every time that the home page is loaded, the main image containing the logo and the brand name feature a zooming animation, obtained through CSS.
+  - Clicking on any of the listing titles will open that listing, showing the main details relative to that listing.
+  - The pagination of the listings has been set to 3 per row on larger screens, and only one on smaller screens. The pagination is fully responsive.
+- Footer:
+  - When clicked, the "Facebook" icon opens a new tab and redirects to www.facebook.com.
+  - When clicked, the "Twitter" icon opens a new tab and redirects to www.twitter.com.
+  - When clicked, the "YouTube" icon opens a new tab and redirects to www.youtube.com.
+  - When clicked, the "Instagram" icon opens a new tab and redirects to www.instagram.com.
+
+
 
 
 ### Fixed Bugs
-
 - Removed migrations made during design, using "python3 manage.py migrate futurehomeapp 0017", as 0017 included features that were removed before final deployment.
 - Pictures did not show on the deployed website, so the relevant links were reviewed and Cloudinary was checked to make sure that the static files were copied.
 
 
 ### Unfixed Bugs
 - Line 128 too long in Settings.py file.
+- Pictures can be compressed in order to get a better performance score on Lighthouse.
 
 ## Deployment
 The live link can be found here - [Future Home]()
@@ -266,6 +287,3 @@ The live link can be found here - [Future Home]()
 ### Disclaimer
 
 The information provided on this site is intended for educational purposes only.
-
-
-
