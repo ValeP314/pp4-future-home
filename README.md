@@ -30,6 +30,9 @@ View the live project here: [Future Home](https://future-home.herokuapp.com/)
 * [Deployment](#deployment)
   * [Creating the Project](#creating-project)
   * [Deployment to Heroku](#deployment-heroku)
+  * [Final Deployment](#final-deployment)
+  * [Forking the Repository](#forking-the-repository)
+  * [Cloning the Repository](#cloning-the-repository)
 * [Credits](#credits)
   * [Contents](#contents)
   * [Disclaimer](#disclaimer)
@@ -379,6 +382,24 @@ View the live project here: [Future Home](https://future-home.herokuapp.com/)
 The live link can be found here - [Future Home](https://future-home.herokuapp.com/)
 
 
+### Forking the Repository
+Forking creates your own copy of another existing repository in the remote location.
+In order to fork this repository:
+1. Locate the [Future Home](https://github.com/ValeP314/pp4-future-home/tree/main) repository on GitHub.
+2. Select "Fork" on the top right side of the page.
+3. A copy of the repository will be saved on your GitHub account.
+
+
+### Cloning the repository
+Cloning makes a local copy of a repository, and retains a link to its original repository. If you would like to make changes directly to a repository you have the permission to contribute to, then cloning will be the first step before we implement the actual changes and push.
+1. Locate the [Future Home](https://github.com/ValeP314/pp4-future-home/tree/main) repository on GitHub.
+2. Click on the "Code" menu and select one of the cloning options: HTTPS, SSH, and GitHub CLI, copying the link provided.
+3. Open a Terminal.
+4. Change the current working directory to the location where you want the cloned directory.
+5. Type `git clone`, and then paste the URL you copied earlier (in step 2).
+6. Press "Clone" and a new clone will be created.
+
+
 ## Credits  
 
 ### Content 
@@ -394,6 +415,7 @@ The live link can be found here - [Future Home](https://future-home.herokuapp.co
 - I read [Better Programming](https://betterprogramming.pub/build-a-personal-journal-with-django-and-python-f4835d27368c) article, to have an overview on blogs and functionality.
 - I watched [Code with Stein](https://www.youtube.com/watch?v=I8TRkEcw9Mg) tutorials.
 - I searched for other PP4 projects on GitHub, to make sure I was working in the right direction.
+- The difference between forking and cloning a repository were analysed on [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) and confirmed on [Educative](https://www.educative.io/answers/what-is-the-difference-between-forking-and-cloning-in-git).
 
 
 ### Disclaimer
