@@ -158,7 +158,7 @@ View the live project here: [Future Home](https://future-home.herokuapp.com/)
 
 - __Sign Up Form__
 
-  - The "Sign Un" will provide the user with the opportunity to sign up to the website.
+  - The "Sign Up" will provide the user with the opportunity to sign up to the website.
   - In case the Site User is not already registered, it provides the option to Register instead. 
   - This section is valuable to the user as they will be able to access the full website functionality.
   - The form collects the username and password only. 
@@ -253,19 +253,50 @@ View the live project here: [Future Home](https://future-home.herokuapp.com/)
 - Navigation Bar:
   - The "Future Home" logo redirects to the home page when clicked.
   - The  "Home" button on the navigation bar redirects to the Home page when clicked.
-  - The "Register" button on the navigation bar changes colour when hoovered on and loads the "Sign Up" page when clicked.
-  - The "Login" button on the navigation bar changes colour when hoovered on and loads the "Sign In" page when clicked.
+  - The "Register" button on the navigation bar changes colour when hovered on and loads the "Sign Up" page when clicked.
+  - The "Sign Up" page has been tested and works well.
+  - The "Login" button on the navigation bar changes colour when hovered on and loads the "Sign In" page when clicked.
+  - The "Sign In" page has been tested and works well.
+  - When signing in, a green pop-up message confirms that we are now logged in with our username.
+  - The Navigation bar is fully responsive and it was tested on larger screens where the features are listed on the top right of the page, and on smaller screens, where it looks compressed in a menu icon, that opens up below to show the pull list of features.
 - Home Page:
   - Every time that the home page is loaded, the main image containing the logo and the brand name feature a zooming animation, obtained through CSS.
   - Clicking on any of the listing titles will open that listing, showing the main details relative to that listing.
-  - The pagination of the listings has been set to 3 per row on larger screens, and only one on smaller screens. The pagination is fully responsive.
+  - The pagination of the listings has been set to 3 per row on larger screens, and only one on smaller screens. The pagination is fully responsive, and was tested on large and small screens.
+- Opening a listing:
+  - If the user is not logged in, it is only possible to view the listing details, the number of likes and comments, and the questions asked and answered.
+  - It is possible to create an account clicking on the relevant text, that changes colour and becomes highlighted when hovered on. The feature works and opens the Sign Up page.
+  - It is also possible to sign in if the user is already registered. The text for signing in changes colour and becomes highlighted when hovered on. The feature works and opens the Sign In page.
 - Footer:
   - When clicked, the "Facebook" icon opens a new tab and redirects to www.facebook.com.
   - When clicked, the "Twitter" icon opens a new tab and redirects to www.twitter.com.
   - When clicked, the "YouTube" icon opens a new tab and redirects to www.youtube.com.
   - When clicked, the "Instagram" icon opens a new tab and redirects to www.instagram.com.
-
-
+- When signing in as a regular user:
+  - When signing in, a green pop-up message confirms that we are now logged in as our username.
+  - The Navigation bar changes to "Home" and "Logout".
+  - Selecting "Home", it redirects to the Home page.
+  - Selecting "Logout", redirects to a Sign Out page where the confirmation to sign out is required in order to successfully do so. This feature has been tested and works well.
+  - When signing out, a green pop-up message confirms that we are now logged out.
+  - Selecting one of the listing to the homepage, will open that listing.
+  - As a logged in user, it is possible to like/dislike a listing, and the feature has been tested and works well.
+  - As a logged in user, it is possible to ask a question on the specific listing, and the feature has been tested and works well. The question needs to be approved by the Admin before being shown among the lists of questions.
+- When signing in as an Admin:
+  - When signing in, a green pop-up message confirms that we are now logged in as Admin.
+  - The Navigation bar changes to "Home", "Add listing" and "Logout".
+  - Selecting "Home", it redirects to the Home page.
+  - Selecting "Add Listing", opens a new page with a list of listing details that need to be filled in order to add a new listing. Clicking the "Add" button at the end of the page will add a new listing. The same outcome can be achieved accessing the [Admin Page](https://future-home.herokuapp.com/admin/) once logged in as an Admin. Selecting "Listing" on the "Futurehomeapp", it is possible to just click on the + Add button and insert the same information.
+  Having the "Add listing" on the navigation bar saves time to the Admin in adding new listings.
+  - Selecting "Logout", redirects to a Sign Out page where the confirmation to sign out is required in order to successfully do so. This feature has been tested and works well.
+  - When signing out, a green pop-up message confirms that we are now logged out.
+  - Selecting one of the listing to the homepage, will open that listing.
+  - As an Admin, it is possible to like/dislike a listing, and the feature has been tested and works well.
+  - As an Admin, it is possible to edit the listing. Clicking on the blue "Edit Listing" button (that changes colour when hovered on) opens a new page with content, status and price of the listing. These information can be amended accordingly by the Admin. Clicking "Update" allows the Admin to edit without accessing the Admin panel. The feature has been tested and works well.
+  - As an Admin, it is also possible to delete the listing. Clicking on the red "Delete Listing" button (that changes colour when hovered on) opens a new page requesting the confirmation to delete that listing. Clicking "Delete" allows the Admin to delete the listing without accessing the Admin panel. The feature has been tested and works well.
+  - As an Admin, it is possible to add a question or a comment on the specific listing, and the feature has been tested and works well.
+- Security:
+  - If a user attempts to log into the admin panel from the URL, they are redirected to a login screen that requires credentials in order to access restricted features of the website.
+  - All Admin-only features have been tested and do not appear as editable for other users (both logged in or non-logged in).
 
 
 ### Fixed Bugs
